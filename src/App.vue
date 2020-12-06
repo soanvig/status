@@ -1,15 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <Button>My app</Button>
+  <div class="mdc-typography">
+    <img alt="Vue logo" src="./assets/logo.png">
+    <Button>My app</Button>
+    <Card />
+    <ProgressCircular />
+  </div>
 </template>
 
 <script>
+import '@material/typography/dist/mdc.typography.min.css';
+
 import Button from './components/Button';
+import Card from './components/Card';
+import ProgressCircular from './components/ProgressCircular';
 
 export default {
   name: 'App',
   components: {
-    Button
+    Button,
+    Card,
+    ProgressCircular,
   }
 }
 </script>
