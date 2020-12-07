@@ -1,34 +1,59 @@
 <template>
   <div class="mdc-typography">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Button>My app</Button>
-    <Card />
-    <ProgressCircular />
+    <TopBar>Mort&Mortis Status</TopBar>
+    <div class="app_statuses">
+       <endpoint-status title="MortMortis" url="https://mortmortis.pl" />
+      <endpoint-status title="gorzkayuca" url="https://gorzkayuca.com" />
+      <endpoint-status title="Kamil Lasończyk" url="https://kamil-lasonczyk.pl" />
+    </div>
   </div>
 </template>
 
 <script>
 import '@material/typography/dist/mdc.typography.min.css';
 
-import Button from './components/Button';
-import Card from './components/Card';
-import ProgressCircular from './components/ProgressCircular';
+import TopBar from '@/components/TopBar';
+import EndpointStatus from '@/app/EndpointStatus/EndpointStatus.vue';
 
 export default {
   name: 'App',
   components: {
-    Button,
-    Card,
-    ProgressCircular,
+    TopBar,
+    EndpointStatus,
   }
 }
 </script>
 
 <style>
+:root {
+  /** https://mdbootstrap.com/live/_doc/all-colors.html */
+  --color-success: #00C851;
+  --color-important: #ff4444;
+  --color-warning: #ffbb33;
+  --color-info: #33b5e5;
+}
+
 #app {
   font-family: Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app_statuses {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 16px;
 }
 </style>

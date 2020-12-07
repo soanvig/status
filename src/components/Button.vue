@@ -11,7 +11,7 @@ import '@material/button/dist/mdc.button.min.css';
 import { MDCRipple } from '@material/ripple';
 
 export default {
-  name: 'button',
+  name: 'md-button',
   mounted () {
     MDCRipple.attachTo(this.$el);
   }
