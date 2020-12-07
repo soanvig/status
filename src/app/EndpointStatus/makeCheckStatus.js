@@ -3,7 +3,7 @@ import { EndpointState, checkEndpoint } from '@/api/checkEndpoint';
 
 export const makeCheckStatus = (props) => {
   const isLoading = ref(true);
-  const status = ref(EndpointState.Error);
+  const status = ref({ state: EndpointState.Error, code: 200 });
 
   const checkStatus = async () => {
     status.value = await checkEndpoint(props.url);

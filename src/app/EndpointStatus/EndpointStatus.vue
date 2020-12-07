@@ -1,15 +1,19 @@
 <template>
-  <card :title="title">
+  <card :title="title" @action="navigate">
     <div class="endpoint-status_info">
-      <progress-circular v-if="isLoading" />
-      <md-icon v-else-if="status === Status.Ok" icon="done" class="endpoint-status_ok" />
-      <md-icon v-else-if="status === Status.Error" icon="error" class="endpoint-status_error" />
-      <md-icon v-else-if="status === Status.Unknown" icon="device_unknown" class="endpoint-status_error" />
+      <span class="endpoint-status_res" :class="resClass">
+        <progress-circular v-if="isLoading" />
+        <md-icon v-else-if="state === Status.Ok" icon="done" />
+        <md-icon v-else-if="state === Status.Error" icon="error" />
+        <md-icon v-else-if="state === Status.Unknown" icon="device_unknown" />
+
+        <template v-if="!isLoading">{{ status.code }}</template>
+      </span>
 
       <span v-if="isLoading">Loading</span>
-      <span v-else-if="status === Status.Ok">OK</span>
-      <span v-else-if="status === Status.Error">Error</span>
-      <span v-else-if="status === Status.Unknown">Unknown</span>
+      <span v-else-if="state === Status.Ok">Everything's ok</span>
+      <span v-else-if="state === Status.Error">Error</span>
+      <span v-else-if="state === Status.Unknown">Unknown</span>
     </div>
   </card>
 </template>
@@ -34,6 +38,19 @@ export default {
   },
   created () {
     this.Status = EndpointState;
+  },
+  computed: {
+    state () {
+      return this.status.state;
+    },
+    resClass() {
+      return `is-${this.state}`;
+    }
+  },
+  methods: {
+    navigate () {
+      window.open(this.url, '_blank');
+    }
   }
 }
 </script>
@@ -45,15 +62,22 @@ export default {
     column-gap: 16px;
   }
 
-  .endpoint-status_ok {
+  .endpoint-status_res {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: min-content auto;
+    column-gap: 8px;
+  }
+
+  .endpoint-status_res.is-ok {
     color: var(--color-success);
   }
 
-  .endpoint-status_error {
+  .endpoint-status_res.is-error {
     color: var(--color-important);
   }
 
-  .endpoint-status_unknown {
+  .endpoint-status_res.is-unknown {
     color: var(--color-warning);
   }
 </style>

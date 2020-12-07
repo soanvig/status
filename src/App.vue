@@ -51,9 +51,11 @@ html, body {
 
 .app_statuses {
   display: grid;
+  gap: 32px;
 
-  grid-template-columns: 1fr 1fr;
-
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, 400px);
+  grid-auto-rows: 200px;
+  
+  padding: 32px;
 }
 </style>

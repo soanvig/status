@@ -10,14 +10,28 @@ export const checkEndpoint = async (url) => {
   try {
     const { status } = await fetch(`${proxyAnywhere}/${url}`);
 
-    if (status === 200) {
-      return EndpointState.Ok;
+    if (status >= 200 && status <= 299) {
+      return {
+        state: EndpointState.Ok,
+        code: status,
+      };
     } else if (status >= 400 && status <= 599) {
-      return EndpointState.Error;
+      return {
+        state: EndpointState.Error,
+        code: status,
+      };
     } else {
-      return EndpointState.Unknown;
+      return {
+        state: EndpointState.Unknown,
+        code: status,
+      };
     }
   } catch (e) {
-    return EndpointState.Error;
+    console.error(e);
+
+    return {
+      state: EndpointState.Error,
+      code: 0,
+    }
   }
 }
