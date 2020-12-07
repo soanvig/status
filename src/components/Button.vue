@@ -7,7 +7,6 @@
   </button>
 </template>
 <script>
-import '@material/button/dist/mdc.button.min.css';
 import { MDCRipple } from '@material/ripple';
 
 export default {
@@ -17,3 +16,7 @@ export default {
   }
 }
 </script>
+<style scoped>
+@import "~@material/button/dist/mdc.button.min.css";
+
+</style>

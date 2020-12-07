@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "prebuild": "vue-cli-service build",
+    "build": "docker build -t eu.gcr.io/private-cloud-291619/status:latest .",
+    "push": "docker push eu.gcr.io/private-cloud-291619/status:latest",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

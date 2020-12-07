@@ -14,7 +14,6 @@
   </div>
 </template>
 <script>
-import '@material/card/dist/mdc.card.min.css';
 import { MDCRipple } from '@material/ripple';
 
 export default {
@@ -42,6 +41,8 @@ export default {
 }
 </script>
 <style scoped>
+  @import "~@material/card/dist/mdc.card.min.css";
+
   .mdc-card__content {
     padding: 16px;
   }

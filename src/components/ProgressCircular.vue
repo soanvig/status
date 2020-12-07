@@ -28,7 +28,6 @@
   </div>
 </template>
 <script>
-import '@material/circular-progress/dist/mdc.circular-progress.min.css';
 import { MDCCircularProgress } from '@material/circular-progress';
 
 export default {
@@ -40,3 +39,7 @@ export default {
   }
 }
 </script>
+<style scoped>
+@import "~@material/circular-progress/dist/mdc.circular-progress.min.css";
+
+</style>

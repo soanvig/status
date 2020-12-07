@@ -10,7 +10,6 @@
   </header>
 </template>
 <script>
-import '@material/top-app-bar/dist/mdc.top-app-bar.min.css';
 import { MDCTopAppBar } from '@material/top-app-bar';
 
 export default {
@@ -22,6 +21,8 @@ export default {
 </script>
 
 <style scoped>
+@import "~@material/top-app-bar/dist/mdc.top-app-bar.min.css";
+
 .mdc-top-app-bar {
   position: static;
   margin-bottom: 40px;
