@@ -7,7 +7,7 @@
     "prebuild": "vue-cli-service build",
     "build": "docker build -t eu.gcr.io/private-cloud-291619/status:latest .",
     "push": "docker push eu.gcr.io/private-cloud-291619/status:latest",
-    "deploy": "gcloud run deploy status --image eu.gcr.io/private-cloud-291619/status:latest --port 80",
+    "deploy": "gcloud run deploy status --image eu.gcr.io/private-cloud-291619/status:latest --port 80 --platform managed --region europe-west4",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
