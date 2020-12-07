@@ -2,9 +2,10 @@
   <div class="mdc-typography">
     <TopBar>Mort&Mortis Status</TopBar>
     <div class="app_statuses">
-       <endpoint-status title="MortMortis" url="https://mortmortis.pl" />
+      <endpoint-status title="MortMortis" url="https://mortmortis.pl" />
       <endpoint-status title="gorzkayuca" url="https://gorzkayuca.com" />
       <endpoint-status title="Kamil Lasończyk" url="https://kamil-lasonczyk.pl" />
+      <endpoint-status title="Reiki Lokata" url="https://reiki-lokata.pl" />
     </div>
   </div>
 </template>
