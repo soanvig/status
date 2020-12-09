@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import '@material/typography/dist/mdc.typography.min.css';
-
 import TopBar from '@/components/TopBar';
 import EndpointStatus from '@/app/EndpointStatus/EndpointStatus.vue';
 
@@ -26,6 +24,8 @@ export default {
 </script>
 
 <style>
+@import "~@material/typography/dist/mdc.typography.min.css";
+
 :root {
   /** https://mdbootstrap.com/live/_doc/all-colors.html */
   --color-success: #00C851;
