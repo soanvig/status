@@ -5,25 +5,30 @@ export const EndpointState = {
 }
 
 export const checkEndpoint = async (url) => {
-  const proxyAnywhere = 'https://cors-anywhere.herokuapp.com';
 
   try {
-    const { status } = await fetch(`${proxyAnywhere}/${url}`);
+    const { code } = await fetch('https://europe-west3-private-cloud-291619.cloudfunctions.net/cors-anywhere', {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({ website: url })
+    }).then(res => res.json());
 
-    if (status >= 200 && status <= 299) {
+    if (code >= 200 && code <= 299) {
       return {
         state: EndpointState.Ok,
-        code: status,
+        code,
       };
-    } else if (status >= 400 && status <= 599) {
+    } else if (code >= 400 && code <= 599) {
       return {
         state: EndpointState.Error,
-        code: status,
+        code,
       };
     } else {
       return {
         state: EndpointState.Unknown,
-        code: status,
+        code,
       };
     }
   } catch (e) {
