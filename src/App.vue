@@ -6,6 +6,7 @@
       <endpoint-status title="gorzkayuca" url="https://gorzkayuca.com" />
       <endpoint-status title="Kamil Lasończyk" url="https://kamil-lasonczyk.pl" />
       <endpoint-status title="Reiki Lokata" url="https://reiki-lokata.pl" />
+      <endpoint-status title="Reiki Lokata" url="https://estibro.com" />
     </div>
   </div>
 </template>
